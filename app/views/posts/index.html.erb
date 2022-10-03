@@ -1,0 +1,31 @@
+<h1>Ruby on Rails スケジュール管理アプリ</h1>
+<p>スケジュール一覧</p>
+
+<table>
+	<tr>
+		<th>ID</th>
+		<th>タイトル</th>
+		<th>開始日</th>
+		<th>終了日</th>
+		<th>終日</th>
+		<th>スケジュール更新日時</th>
+		<th>確認</th>
+		<th>編集</th>
+		<th>削除</th>
+	</tr>
+
+	<% @posts.each do |post| %>
+		<tr>
+			<td><%= post.id %></td>
+			<td><%= post.title %></td>
+			<td><%= post.start %></td>
+			<td><%= post.end %></td>
+			<td><%= post.allday %></td>
+			<td><%= post.update_at %></td>
+			<td><%= link_to "確認", post %></td>
+			<td><%= link_to "編集", [:edit, post] %></td>
+			<td><%= link_to "削除", post, method: :delete, data: {confirm: "本当に削除しますか？"} %></td>
+		</tr>
+	<% end %>
+</table>
+
