@@ -6,11 +6,15 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <link href="https://unpkg.com/sanitize.css" rel="stylesheet"/>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <header>
+      <h1 class="app_name">Ruby on Rails スケジュール管理アプリ</h1>  
+    </header>
     <%= yield %>
   </body>
 </html>

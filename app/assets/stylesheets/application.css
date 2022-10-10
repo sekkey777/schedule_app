@@ -13,3 +13,16 @@
  *= require_tree .
  *= require_self
  */
+
+body {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+ .app_name {
+     background-color: rgb(21, 96, 161);
+     color: white;
+     padding-top: 15px;
+     padding-bottom: 15px;
+     padding-left: 15px;
+ }

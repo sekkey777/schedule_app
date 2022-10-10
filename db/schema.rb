@@ -10,15 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_10_03_194259) do
+ActiveRecord::Schema.define(version: 2022_10_10_093535) do
 
   create_table "posts", force: :cascade do |t|
     t.string "title"
-    t.string "start"
-    t.string "end"
+    t.datetime "start"
+    t.datetime "end"
     t.string "allday"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "priority"
+    t.string "content"
   end
 
 end
