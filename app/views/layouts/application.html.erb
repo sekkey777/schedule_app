@@ -16,5 +16,9 @@
       <h1 class="app_name">Ruby on Rails スケジュール管理アプリ</h1>  
     </header>
     <%= yield %>
+    <footer>
+      <% posts = Post.all %>
+      <h1>現在の日時：<%= Time.now.to_s(:datetime_jp) %>　スケジュール合計： <%= posts.count %>件 </h1>
+    </footer>
   </body>
 </html>
