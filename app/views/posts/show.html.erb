@@ -1,0 +1,36 @@
+<p class="title">スケジュール新規登録</p>
+
+<table>
+	<tr>
+		<th>タイトル</th>
+		<td><%= @post.title %></td>
+	</tr>
+	<tr>
+		<th>開始日</th>
+		<td><%= @post.start.to_s(:datetime_jp) %></td>
+	</tr>
+	<tr>
+		<th>終了日</th>
+		<td><%= @post.end.to_s(:datetime_jp) %></td>
+	</tr>
+	<tr>
+		<th>終日</th>
+		<td><%= @post.check_box %></td>
+	</tr>
+	<tr>
+		<th>優先度</th>
+		<td><%= @post.priority %></td>
+	</tr>
+	<tr>
+		<th>スケジュールメモ</th>
+		<td><%= @post.content %></td>
+	</tr>
+</table>
+
+<div>
+	<ul>
+		<li><%= link_to "スケジュール一覧に戻る", :posts %></li>
+		<li><%= link_to "スケジュールを編集する", [:edit, @post] %></li>
+		<li><%= link_to "スケジュールを削除する", @post, method: :delete, data: {confirm: "本当に削除しますか？"} %></li>
+	</ul>
+</div>

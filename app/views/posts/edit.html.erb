@@ -1,0 +1,41 @@
+<p class="title">スケジュール新規登録</p>
+
+<%= form_with model: @post do |f| %>
+	<table>
+		<tr>
+			<th><%= f.label :title, "タイトル" %></th>
+			<td><%= f.text_field :title, size: "40" %></td>
+		</tr>
+		<tr>
+			<th><%= f.label :start, "開始日" %></th>
+			<td><%= f.date_field :start %></td>
+		</tr>
+		<tr>
+			<th><%= f.label :end, "終了日" %></th>
+			<td><%= f.date_field :end %></td>
+		</tr>
+		<tr>
+			<th><%= f.label :check_box, "終日" %></th>
+			<td>
+				<%= f.check_box :check_box %>
+				<p>終日の場合はチェックを入れます</p>
+			</td>
+		</tr>
+		<tr>
+			<th><%= f.label :priority, "優先度" %></th>
+			<td><%= f.select :priority, [["高い", "高い"], ["普通", "普通"], ["低い", "低い"]], {}, {class: "select"} %></td>
+		</tr>
+		<tr>
+			<th><%= f.label :content, "スケジュールメモ" %></th>
+			<td><%= f.text_area :content, size: "40x10" %></td>
+		</tr>
+	</table>
+
+	<div>
+		<ul>
+			<li class="button"><%= f.submit "スケジュールを編集する" %></li>
+			<li><%= link_to "スケジュール一覧に戻る", :posts %></li>
+			<li><%= link_to "スケジュールを削除する", @post, method: :delete, data: {confirm: "本当に削除しますか？"} %></li>
+		</ul>
+	</div>
+<% end %>

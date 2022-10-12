@@ -1,0 +1,42 @@
+<p class="title">スケジュール一覧</p>
+
+<% if flash[:notice] %>
+	<p class="notice"><%= flash[:notice] %></p>
+<% end %>
+
+<table>
+	<tr>
+		<th>ID</th>
+		<th>タイトル</th>
+		<th><%= sort_link(@q, :start, "開始日", {class: "sort_link"}) %></th>
+		<th><%= sort_link(@q, :end, "終了日", {class: "sort_link"}) %></th>
+		<th>終日</th>
+		<th><%= sort_link(@q, :priority, "優先度", {class: "sort_link"}) %></th>
+		<th>更新日時</th>
+		<th>確認</th>
+		<th>編集</th>
+		<th>削除</th>
+	</tr>
+
+	<% @posts.each do |post| %>
+		<tr>
+			<td><%= post.id %></td>
+			<td><%= post.title %></td>
+			<td><%= post.start.to_s(:datetime_jp) %></td>
+			<td><%= post.end.to_s(:datetime_jp) %></td>
+			<td>
+				<% if post.check_box %>
+					<%= "◯" %>
+				<% end %>
+			</td>
+			<td><%= post.priority %></td>
+			<td><%= post.updated_at.to_s(:datetime_jp) %></td>
+			<td><%= link_to "確認", post %></td>
+			<td><%= link_to "編集", [:edit, post] %></td>
+			<td><%= link_to "削除", post, method: :delete, data: {confirm: "本当に削除しますか？"} %></td>
+		</tr>
+	<% end %>
+</table>
+
+<p><%= link_to "スケジュール新規登録", :new_post %></p>
+
